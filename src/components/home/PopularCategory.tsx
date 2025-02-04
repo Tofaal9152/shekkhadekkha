@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const PopularCategory = () => {
   const categories = [
@@ -105,6 +106,15 @@ const PopularCategory = () => {
               <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2" />
             </div>
           </Carousel>
+          <div className="text-center mt-10">
+            <Button
+              variant={"destructive"}
+              className="px-6 py-3  text-lg font-semibold   transition-transform  ease-in-out transform hover:scale-105"
+            >
+             সব ক্যাটেগরি দেখুন 
+              <FaArrowRightLong />
+            </Button>
+          </div>
         </div>
       </div>
     </div>

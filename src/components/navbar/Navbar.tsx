@@ -11,7 +11,7 @@ import {
   FiHome,
   FiLogIn,
   FiLogOut,
-  FiShoppingCart
+  FiShoppingCart,
 } from "react-icons/fi";
 import { MdDashboardCustomize } from "react-icons/md";
 import { Button } from "../ui/button";
@@ -23,7 +23,7 @@ const Navbar = () => {
   const session = 1;
   return (
     <nav className="bg-gray-100 z-50 dark:bg-[#020817] bg-opacity-30 backdrop-blur sticky top-0 p-4">
-     <div className="container mx-auto px-4 sm:px-6 lg:px-8  flex items-center justify-between">
+      <div className="container mx-auto  lg:px-8  flex items-center justify-between">
         {/* logo */}
         <img className="" src="/logo.jpeg" alt="" />
         {/* navitems */}
@@ -34,6 +34,16 @@ const Navbar = () => {
               হোম
             </span>
           </li>
+          {session ? (
+            <li className="flex items-center space-x-2 cursor-pointer hover:underline">
+              <span className="text-black dark:text-white flex gap-2 hover:text-gray-600 dark:hover:text-gray-400">
+                <MdDashboardCustomize className="text-lg" />
+                ড্যাশবোর্ড
+              </span>
+            </li>
+          ) : (
+            ""
+          )}
           <li className="flex items-center space-x-2 cursor-pointer ">
             <FiGrid className="text-lg" />
             <CategoryMenu />
@@ -49,13 +59,13 @@ const Navbar = () => {
         <div className="space-x-3 hidden md:flex items-center">
           <ModeToggle />
           {session ? (
-            <Button>
+            <Button variant={"destructive"}>
               {" "}
-              <MdDashboardCustomize className="text-lg" />
-              ড্যাশবোর্ড
+              <FiLogOut className="text-lg" />
+              লগআউট
             </Button>
           ) : (
-            <Button>
+            <Button variant={"destructive"}>
               {" "}
               <FiLogIn className="text-lg" />
               রেজিস্টার / লগইন

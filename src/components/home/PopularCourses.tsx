@@ -2,7 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import CourseCard from "./CourseCard";
-
+import { FaArrowRightLong } from "react-icons/fa6";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 const PopularCourses = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -58,22 +65,29 @@ const PopularCourses = () => {
 
         {/* Tabs */}
         <Tabs defaultValue="All" className="w-full mb-8">
-          {/* Tab List */}
-          <TabsList className="flex flex-wrap justify-center gap-2 mb-6 bg-transparent">
-            {courseCategories.map((category) => (
-              <TabsTrigger
-                key={category}
-                value={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 border rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category
-                    ? "bg-blue-600 text-white dark:bg-blue-500"
-                    : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-                }`}
-              >
-                {category}
-              </TabsTrigger>
-            ))}
+          {/* Tab List - Move it outside the Carousel */}
+          <TabsList className="flex justify-center items-center w-full gap-2 mb-6 bg-transparent overflow-hidden">
+            <Carousel className="w-full max-w-[900px]">
+              <CarouselContent className="flex mx-0 w-full">
+                {courseCategories.map((category) => (
+                  <CarouselItem key={category} className="flex-none w-fit px-2">
+                    <TabsTrigger
+                      value={category}
+                      onClick={() => setActiveCategory(category)}
+                      className={`px-4 py-2 border rounded-full text-sm font-medium transition-all duration-300 ${
+                        activeCategory === category
+                          ? "text-white bg-red-500 dark:bg-red-500"
+                          : "text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-700"
+                      }`}
+                    >
+                      {category}
+                    </TabsTrigger>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </TabsList>
 
           {/* Tab Content */}
@@ -93,8 +107,12 @@ const PopularCourses = () => {
 
         {/* View All Courses Button */}
         <div className="text-center mt-10">
-          <Button className="px-6 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-transform duration-300 ease-in-out transform hover:scale-105">
+          <Button
+            variant={"destructive"}
+            className="px-6 py-3  text-lg font-semibold   transition-transform  ease-in-out transform hover:scale-105"
+          >
             সবগুলো কোর্স দেখুন
+            <FaArrowRightLong />
           </Button>
         </div>
       </div>

@@ -8,11 +8,11 @@ const Hero = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between h-full py-12 md:py-24">
         {/* Left Side - Hero Text */}
         <div className="w-full md:w-1/2 px-6 md:px-10 space-y-6 mb-12 md:mb-0">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-800 dark:text-white">
+          <h1 className="text-4xl md:text-start text-center md:text-5xl font-bold leading-tight text-gray-800 dark:text-white">
             বিশ্বস্ত সেবা, উন্নত ভবিষ্যৎ - আমরা আপনার সাফল্যের নিশ্চয়তা
           </h1>
 
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="text-lg md:text-start text-center text-gray-600 dark:text-gray-300">
             আমরা আপনার লক্ষ্য অর্জনে প্রতিটি পদক্ষেপে গুণগত মান এবং দক্ষতা
             প্রদান করি। আপনার ব্যবসার সাফল্য নিশ্চিত করার জন্য আমরা সর্বদা
             প্রস্তুত।
